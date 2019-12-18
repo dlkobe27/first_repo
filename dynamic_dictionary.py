@@ -1,9 +1,8 @@
 """
-Polish:
-Napisać program, który pozwoli użytkownikowi:
-1) Dodawać nowe definicje
-2) Szukać istniejących definicji
-3) Usuwać wybrane przez niego definicje
+The script which allows user to:
+1) Add new definitions
+2) Search for a definition
+3) Remove definitions
 """
 # definitions = dict(key="definition")
 # key = list(definitions.keys())[list(definitions.values()).index(definition)] - search for a key by value
