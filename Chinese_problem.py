@@ -33,10 +33,11 @@ def solve_simple(heads, legs):
     return 'No solutions!'
 
 
-heads = 35
-legs = 94
-solution_simple = solve_simple(heads, legs)
-solution_numpy = solve_numpy(heads, legs)
-print(solution_simple, solution_numpy)
-print(function_performance(solve_simple, heads, legs))
-print(function_performance(solve_numpy, heads, legs))
+if __name__ == '__main__':
+    heads = 35
+    legs = 94
+    solution_simple = solve_simple(heads, legs)
+    solution_numpy = solve_numpy(heads, legs)
+    print(solution_simple, solution_numpy)
+    print(function_performance(solve_simple, heads, legs))
+    print(function_performance(solve_numpy, heads, legs))
