@@ -12,7 +12,7 @@ def function_performance(func, *args):
     start = time.perf_counter()
     func(*args)
     end = time.perf_counter()
-    return end-start
+    return str(end-start) + " seconds"
 
 
 def solve_numpy(heads, legs):
@@ -21,7 +21,7 @@ def solve_numpy(heads, legs):
     result = np.linalg.solve(matrix, solutions)  # returns numpy array with float elements
     if str(result[0])[-1] == '0' and str(result[1])[-1] == '0':  # check whether the solution is integer
         return int(result[0]), int(result[1])
-    return 'No solutions!'
+    return 'No integer solutions!'
 
 
 def solve_simple(heads, legs):
@@ -29,7 +29,7 @@ def solve_simple(heads, legs):
         sheeps = heads - chickens
         if (2*chickens)+(4*sheeps) == legs:
             return chickens, sheeps
-    return 'No solutions!'
+    return 'No integer solutions!'
 
 
 if __name__ == '__main__':
@@ -38,5 +38,5 @@ if __name__ == '__main__':
     solution_simple = solve_simple(heads, legs)
     solution_numpy = solve_numpy(heads, legs)
     print(solution_simple, solution_numpy)
-    print(function_performance(solve_simple, heads, legs))
-    print(function_performance(solve_numpy, heads, legs))
+    print("Regular loop solution takes " + function_performance(solve_simple, heads, legs))
+    print("Numpy solution takes " + function_performance(solve_numpy, heads, legs))
