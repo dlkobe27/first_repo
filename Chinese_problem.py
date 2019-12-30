@@ -19,7 +19,7 @@ def solve_numpy(heads, legs):
     matrix = np.array([[1, 1], [2, 4]])  # coefficients of left-hand sides of equations in algebraic system
     solutions = np.array([heads, legs])  # right-hand sides of equations in system
     result = np.linalg.solve(matrix, solutions)  # returns numpy array with float elements
-    if str(result[0])[-1] == '0' and str(result[1])[-1] == '0':  # check whether the solution is integer
+    if result[0].is_integer() and result[1].is_integer():  # check whether the solution is integer
         return int(result[0]), int(result[1])
     return 'No integer solutions!'
 
