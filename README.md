@@ -1,2 +1,2 @@
 # first_repo
-Test repository containing very first self-made Python 3 scripts
+Test repository containing the very first self-made Python 3 scripts
