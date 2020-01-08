@@ -6,7 +6,7 @@ from random import randint
 def element_search(input_list, number):
     ordered_list = sorted(list(set(input_list)))  # excluding duplicates and sorting
     new_elem = ordered_list[len(ordered_list) // 2]
-    while len(ordered_list) > 1:
+    while not len(ordered_list) == 1:
         new_index = ordered_list.index(new_elem)
         if number < new_elem:
             ordered_list = ordered_list[:new_index]
