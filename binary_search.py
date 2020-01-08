@@ -4,11 +4,9 @@ from random import randint
 
 
 def element_search(input_list, number):
-    ordered_list = sorted(list(set(input_list)))  # deleting duplicates and sorting
+    ordered_list = sorted(list(set(input_list)))  # excluding duplicates and sorting
     new_elem = ordered_list[len(ordered_list) // 2]
-    if new_elem == number == 0:
-        return True
-    while new_elem and len(ordered_list) > 1:
+    while len(ordered_list) > 1:
         new_index = ordered_list.index(new_elem)
         if number < new_elem:
             ordered_list = ordered_list[:new_index]
