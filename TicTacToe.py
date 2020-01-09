@@ -2,7 +2,7 @@ game = [[0, 0, 0],
         [0, 0, 0],
         [0, 0, 0]]
 
-full_cells, winner = 0, 0
+full_cells = 0
 players = {1: 'X', 2: 'O'}
 
 
@@ -46,10 +46,9 @@ def draw_gameboard(game):
 # MAIN LOOP
 while True:
     player_turn(1)
-    winner = line_match(game)
-    if winner:
+    if line_match(game):
         draw_gameboard(game)
-        print(f"Congratulations, Player {winner}! You win!")
+        print(f"Congratulations, Player {line_match(game)}! You win!")
         break
     draw_gameboard(game)  # draw the gameboard
 
@@ -58,9 +57,8 @@ while True:
         break
 
     player_turn(2)
-    winner = line_match(game)
-    if winner:
+    if line_match(game):
         draw_gameboard(game)
-        print(f"Congratulations, Player {winner}! You win!")
+        print(f"Congratulations, Player {line_match(game)}! You win!")
         break
     draw_gameboard(game)
