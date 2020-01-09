@@ -6,7 +6,7 @@ full_cells = 0
 players = {1: 'X', 2: 'O'}
 
 
-def line_match(game):
+def winner(game):
     if game[1][1]:  # cheking for diagonal winner and returns winner's number
         if game[1][1] == game[0][0] == game[2][2] or \
                 game[1][1] == game[0][2] == game[2][0]:
@@ -46,9 +46,9 @@ def draw_gameboard(game):
 # MAIN LOOP
 while True:
     player_turn(1)
-    if line_match(game):
+    if winner(game):
         draw_gameboard(game)
-        print(f"Congratulations, Player {line_match(game)}! You win!")
+        print(f"Congratulations, Player {winner(game)}! You win!")
         break
     draw_gameboard(game)  # draw the gameboard
 
@@ -57,8 +57,8 @@ while True:
         break
 
     player_turn(2)
-    if line_match(game):
+    if winner(game):
         draw_gameboard(game)
-        print(f"Congratulations, Player {line_match(game)}! You win!")
+        print(f"Congratulations, Player {winner(game)}! You win!")
         break
     draw_gameboard(game)
