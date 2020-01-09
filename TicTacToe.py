@@ -2,12 +2,11 @@ game = [[0, 0, 0],
         [0, 0, 0],
         [0, 0, 0]]
 
-GAME_OVER = False
 full_cells, winner = 0, 0
 players = {1: 'X', 2: 'O'}
 
 
-def line_match(game):  # cheking for row or column winner and returns winner's number
+def line_match(game):
     if game[1][1]:  # cheking for diagonal winner and returns winner's number
         if game[1][1] == game[0][0] == game[2][2] or \
                 game[1][1] == game[0][2] == game[2][0]:
@@ -45,7 +44,7 @@ def draw_gameboard(game):
 
 
 # MAIN LOOP
-while not GAME_OVER:
+while True:
     player_turn(1)
     winner = line_match(game)
     if winner:
@@ -54,6 +53,10 @@ while not GAME_OVER:
         break
     draw_gameboard(game)  # draw the gameboard
 
+    if full_cells == len(game) ** 2:
+        print("It's a tie. Game over!")
+        break
+
     player_turn(2)
     winner = line_match(game)
     if winner:
@@ -61,8 +64,3 @@ while not GAME_OVER:
         print(f"Congratulations, Player {winner}! You win!")
         break
     draw_gameboard(game)
-
-    if full_cells == len(game) ** 2:
-        GAME_OVER = True
-        draw_gameboard(game)
-        print("It's a tie. Game over!")
